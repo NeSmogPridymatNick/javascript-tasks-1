@@ -1,26 +1,30 @@
 var hours = process.argv[2];
 var minutes = process.argv[3];
-var a = [1, 4, 5, 9, 10, 40, 50];
-var r = ['I','IV','V','IX','X','XL', 'L'];
-function aToR(number)
+var arab = [1, 4, 5, 9, 10, 40, 50];
+var rome = ['I','IV','V','IX','X','XL', 'L'];
+function arabToRome(number)
 {
-    var ret = '';
-    var i = a.length - 1;
+    var  result  = '-'; // если 0
+    var i = arab.length - 1;
     while(number > 0)
     {
-        if(number >= a[i])
+        if(number >= arab[i])
         {
-            ret += r[i];
-            number -= a[i];
+            result  += rome[i];
+            number -= arab[i];
         }
         else
+        {
             i--;
+        }
     }
-    return ret;
+    return  result ;
 }
-if ((hours<24)&&(minutes<=60)) 
+if ((hours<24)&&(minutes<=60)&&(hours>=0)&&(minutes>=0)) 
     {
-        console.log(aToR(hours),':',aToR(minutes));
+        console.log(arabToRome(hours),':',arabToRome(minutes));
     }
     else
+    {
         console.log('Время указано не верно');
+    }
