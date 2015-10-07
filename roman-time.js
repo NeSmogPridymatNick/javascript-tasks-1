@@ -4,13 +4,13 @@ var arab = [1, 4, 5, 9, 10, 40, 50];
 var rome = ['I','IV','V','IX','X','XL', 'L'];
 function arabToRome(number)
 {
-    var  result  = '-'; // если 0
+    var  result  = '';
     var i = arab.length - 1;
     while(number > 0)
     {
         if(number >= arab[i])
         {
-            result  += rome[i];
+             result  += rome[i];
             number -= arab[i];
         }
         else
@@ -18,9 +18,13 @@ function arabToRome(number)
             i--;
         }
     }
+    if (result === '')
+    {
+        result = '-';
+    }
     return  result ;
 }
-if ((hours<24)&&(minutes<=60)&&(hours>=0)&&(minutes>=0)) 
+if (hours<24 && minutes<=60 && hours>=0 && minutes>=0) 
     {
         console.log(arabToRome(hours),':',arabToRome(minutes));
     }
