@@ -24,7 +24,7 @@ function arabToRome(number)
     }
     return  result ;
 }
-if (hours<24 && minutes<=60 && hours>=0 && minutes>=0) 
+if (((hours + 'a' + minutes).indexOf('.') < 0) && hours<24 && minutes<=60 && hours>=0 && minutes>=0)
     {
         console.log(arabToRome(hours),':',arabToRome(minutes));
     }
